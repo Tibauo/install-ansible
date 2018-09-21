@@ -2,4 +2,10 @@
 Create user and home directory  
 replace value in var file  
 execute in sudoer or root:  
-sudo ./install.sh
+cd install && sudo ./install.sh
+
+Test:
+make test-unit
+
+Clean test:
+make clean
