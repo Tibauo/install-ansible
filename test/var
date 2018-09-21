@@ -1,0 +1,4 @@
+user=root
+path_home_user=/$user
+path_ansible_cfg=$path_home_user/.ansible.cfg
+path_ansible_host=$path_home_user/.host
