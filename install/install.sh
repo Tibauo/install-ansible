@@ -23,6 +23,7 @@ exit 1
 
 requiredInstallYum(){
   yum install -y epel-release
+  yum update
   yum install -y python-pip
 }
 
