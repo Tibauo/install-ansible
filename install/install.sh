@@ -22,7 +22,8 @@ exit 1
 
 
 requiredInstallYum(){
-  yum install -y epel-release python-pip
+  yum install -y epel-release
+  yum install -y python-pip
 }
 
 requiredInstallApt(){
@@ -33,17 +34,20 @@ installAnsible(){
   pip install ansible
 }
 
-configureAnsible(){
-
+createUser(){
 if [ -z $(id -u $user) ]; then
   echo "user $user doesn't exist"
-  usage
+  useradd -m $user -s /bin/bash
+  echo "user $user created"
 fi
 
 if [ -f $path_home_user ]; then
   echo "home directory $path_home_directory for $user doesn't exist"
   usage
 fi
+}
+
+configureAnsible(){
 
 if [ ! -e $path_ansible_cfg ]; then
   echo "Create ansible cfg"
@@ -74,6 +78,7 @@ else
   usage
 fi
 
+createUser
 installAnsible
 configureAnsible
 }

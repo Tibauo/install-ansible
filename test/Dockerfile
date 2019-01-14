@@ -1,6 +1,6 @@
-FROM debian
+FROM centos
 COPY install.tar.gz /opt
-RUN apt update \ 
+RUN yum update -y \ 
   && cd /opt \
   && tar -xzvf install.tar.gz \
   && rm /opt/install/var

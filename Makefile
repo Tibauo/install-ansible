@@ -5,7 +5,7 @@ test-unit:
 	cd test && make test
 
 clean:
-	@echo "Start clean" \
-	docker rm $$(docker ps -a -q) \
-	docker rmi $$(docker images -a -q)
+	@echo "Start clean" 
+	docker rm $$(docker ps -a -q) -f 
+	docker rmi $$(docker images -a -q) -f
 	rm test/install.tar.gz
